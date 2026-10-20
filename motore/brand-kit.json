@@ -1,0 +1,152 @@
+{
+  "marchio": "Content Machine",
+  "colori": {
+    "carta": "#ffffff",
+    "inchiostro": "#101010",
+    "inchiostro2": "#4a4a4a",
+    "rosso": "#e2231a",
+    "blu": "#1d4ed8",
+    "filetto": "#d9d9d9",
+    "lastra": "#14181d",
+    "_rosso_altri_formati": {
+      "ass_libass_bgr": "&H001A23E2&"
+    }
+  },
+  "caratteri": {
+    "display": {
+      "famiglia": "Arial",
+      "peso": 700
+    },
+    "testo": {
+      "famiglia": "Arial",
+      "pesi": [
+        400,
+        600
+      ]
+    },
+    "dati": {
+      "famiglia": "Courier New",
+      "peso": 400
+    }
+  },
+  "movimento": {
+    "easing_principale": {
+      "nome": "EASE_RIVISTA",
+      "bezier": [
+        0.16,
+        1,
+        0.3,
+        1
+      ]
+    },
+    "easing_tendina": {
+      "nome": "EASE_WIPE",
+      "bezier": [
+        0.77,
+        0,
+        0.175,
+        1
+      ]
+    },
+    "entrata_canonica": "MaskedLine — il testo sale da sotto una maschera (110% → 0), durata 27 fotogrammi",
+    "regole": [
+      "Una forma visiva nuova per ogni concetto: mai due volte lo stesso schema nello stesso video",
+      "Un elemento grafico alla volta, mai affollato",
+      "Elemento nuovo ogni 6-10 secondi",
+      "I testi si scrivono (write-on), non appaiono",
+      "Il viso non si copre mai: grafiche nel terzo sinistro o nella fascia alto-destra",
+      "Le grafiche trascrivono il parlato chiave, non lo decorano"
+    ]
+  },
+  "formati": {
+    "long_form": {
+      "larghezza": 1920,
+      "altezza": 1080,
+      "fps": 30,
+      "composizione_remotion": "master-full",
+      "sottotitoli": false
+    },
+    "short": {
+      "larghezza": 1080,
+      "altezza": 1920,
+      "fps": 30,
+      "crop_da_1080p": {
+        "larghezza": 608,
+        "altezza": 1080
+      },
+      "composizione_remotion": "OV-short",
+      "sottotitoli": true
+    }
+  },
+  "sottotitoli_short": {
+    "posizione": {
+      "x": 540,
+      "y": 1420
+    },
+    "corpo": 84,
+    "maiuscolo": true,
+    "parole_per_pagina": 4,
+    "caratteri_per_pagina": 18,
+    "parole_per_pagina_primi_10s": 2,
+    "gap_nuova_pagina_s": 0.5,
+    "parola_attiva": {
+      "colore": "#e2231a",
+      "effetto": "micro-pop"
+    }
+  },
+  "audio": {
+    "loudness_lufs": -14,
+    "true_peak_dbtp": -1.5
+  },
+  "codifica": {
+    "pixel_format": "yuv420p",
+    "faststart": true,
+    "crf_finale": 16,
+    "crf_bozza": 30,
+    "bitrate_minimo_bps": 2500000
+  },
+  "voce": {
+    "tono": "Chiaro e fedele al parlato",
+    "pubblico": "Definito nel brief del lavoro",
+    "parole_vietate": [],
+    "emoji_massimo": 0
+  },
+  "mappa_visiva": {
+    "regole": [
+      {
+        "quando": [
+          "passaggi",
+          "processo",
+          "procedura"
+        ],
+        "tipo": "pipeline",
+        "perche": "Visualizzare la sequenza pronunciata",
+        "priorita": 2
+      },
+      {
+        "quando": [
+          "domanda",
+          "perché",
+          "come mai"
+        ],
+        "tipo": "qcard",
+        "perche": "Mostrare la domanda pronunciata",
+        "priorita": 2
+      }
+    ]
+  },
+  "hook_a_schermo": {
+    "schemi": [
+      "paradosso",
+      "scarto sociale",
+      "confessione"
+    ],
+    "durata_s": 6,
+    "posizione": "terzo alto",
+    "parole": [
+      4,
+      8
+    ],
+    "sovrapposizione_massima_col_parlato": 0.3
+  }
+}

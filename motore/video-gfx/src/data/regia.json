@@ -1,0 +1,56 @@
+{
+  "fps": 30,
+  "durSec": 18,
+  "faceOrigin": "70% 40%",
+  "takes": [
+    {
+      "start": 0,
+      "end": 18
+    }
+  ],
+  "punches": [],
+  "events": [
+    {
+      "id": 1,
+      "type": "card",
+      "t0": 0.5,
+      "t1": 5.5,
+      "pos": "SX",
+      "title": "Campione sintetico",
+      "sub": "Nessun dato cliente"
+    },
+    {
+      "id": 2,
+      "type": "minibars",
+      "t0": 9,
+      "t1": 16.5,
+      "pos": "SX",
+      "counter": {
+        "target": 3,
+        "suffix": " passaggi"
+      },
+      "bars": [
+        {
+          "at": 9.3,
+          "h1": 40,
+          "h2": 50
+        },
+        {
+          "at": 9.8,
+          "h1": 70,
+          "h2": 90
+        },
+        {
+          "at": 10.3,
+          "h1": 110,
+          "h2": 130
+        }
+      ],
+      "label": "Dati grafici dimostrativi",
+      "k": {
+        "counter": 9.1,
+        "label": 10.5
+      }
+    }
+  ]
+}
