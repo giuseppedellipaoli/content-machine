@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible rendering, timing, installation, or agent-workflow problem.
+title: "[Bug]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the expected result and the actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include commands and a minimal shareable JSON plan when relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python, Node, FFmpeg, browser versions, commit, and agent used.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Redact credentials, private paths, customer content, and transcript text.
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public report
+      options:
+        - label: I have removed credentials and private/customer data from this report.
+          required: true

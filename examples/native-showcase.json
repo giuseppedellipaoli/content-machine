@@ -1,0 +1,30 @@
+{
+  "fps": 30,
+  "durSec": 18,
+  "source": "base-master30.mp4",
+  "faceOrigin": "70% 40%",
+  "takes": [{"start": 0, "end": 18}],
+  "punches": [],
+  "events": [
+    {
+      "id": 1, "type": "card", "t0": 0.5, "t1": 5.4, "pos": "SX",
+      "title": "YOUR FOOTAGE.", "sub": "YOUR AI AGENT. YOUR EDIT PLAN."
+    },
+    {
+      "id": 2, "type": "flow", "t0": 6.2, "t1": 11.5, "pos": "SX",
+      "steps": [
+        {"t": 6.4, "text": "Transcript"},
+        {"t": 7.2, "text": "Edit plan"},
+        {"t": 8.0, "text": "Render"}
+      ]
+    },
+    {
+      "id": 3, "type": "cta", "t0": 12.2, "t1": 17.4, "pos": "SX",
+      "rows": [
+        {"t": 12.4, "text": "Claude Code. Codex."},
+        {"t": 13.2, "text": "Your workflow.", "red": true},
+        {"t": 14.0, "text": "FFmpeg + Remotion."}
+      ]
+    }
+  ]
+}

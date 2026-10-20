@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest a concrete improvement to the editing engine or agent workflow.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: What are you trying to do?
+      description: Describe a real editing workflow and the current obstacle.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Explain the smallest useful change and any alternative you tried.
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Shareable example
+      description: Optional plan, sketch, or generated fixture. Do not attach private media.

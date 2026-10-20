@@ -1,16 +1,20 @@
-# Origine e perimetro
+# Provenance and scope
 
-Il codice proviene dal motore originale di GDP Studio. Il checkout di partenza è stato letto senza modificare sorgenti, configurazioni o accessi. Il pacchetto ha una nuova storia Git e non include quella del progetto originario.
+Content Machine was extracted from the original GDP Studio video engine. The source checkout, configuration, accounts, and access permissions were preserved. This repository starts a new Git history rather than importing the original project's history.
 
-Componenti conservati:
+## Retained components
 
-- `motore/shorts-pipeline`: montaggio e crop, sottotitoli karaoke, correzioni, algebra dei tagli, silenzi, QA, generazione SFX, overlay e prove del motore.
-- `motore/video-gfx`: componenti generici originali, master e overlay short, tema parametrico, render a blocchi, audio e consegna. Sono stati eliminati scene specifiche di clienti, fullscreen con affermazioni cablate, dati di produzioni precedenti e font non verificati.
-- `motore/orchestratore`: schemi, prompt e conversioni per analisi, correzioni, highlight, regia e FX; validatore deterministico. Il vecchio trasporto API è sostituito da file request/response per qualsiasi agente.
-- `mappa_visiva.py`: proposte dal trascritto usando un brand kit neutro.
+- `motore/shorts-pipeline`: editing, crops, karaoke subtitles, corrections, cut-time algebra, silence handling, QA, synthetic SFX, overlay composition, and native checks.
+- `motore/video-gfx`: generic native components, long-form master, short overlays, configurable theme, versioned rendering, audio, and delivery. Client-specific fullscreen scenes, old production data, and unverified font files were excluded.
+- `motore/orchestratore`: schemas, prompts, and deterministic conversions for analysis, corrections, highlights, graphics plans, and FX. The old provider API transport was replaced with local request/response JSON exchange.
+- `mappa_visiva.py`: transcript-based visual suggestions from a neutral editable brand kit.
 
-Adattamenti per l'autonomia: percorsi relativi/env, browser e font del proprio sistema, cache nel clone o disco scelto, assenza di download impliciti nei render, fallback senza modello volto, supporto FFmpeg 9, errori QA propagati, workspace isolati e istruzioni per agenti.
+## Portability changes
 
-Esclusi: pannello web, API SaaS, billing, database, coda PostgreSQL, storage del servizio, deploy VPS, SSH, account social, pubblicazione, email, dati di altri clienti, log, backup, sessioni e credenziali. Il primo prototipo web sperimentale non appartiene a questo repository.
+Relative/configurable paths, system fonts and browser, explicit cache/temp locations, no implicit downloads during rendering, model-free crop fallback, FFmpeg 9 compatibility, propagated QA errors, isolated workspaces, and agent instructions.
 
-Non sono distribuiti archivi di applicazioni terze, materiale da directory `reference`, asset di reverse engineering, modelli, font o media originali. Le dipendenze si installano dai loro package registry ufficiali e conservano i propri termini. Il campione di collaudo viene generato da codice e FFmpeg; non contiene volti o dati cliente.
+## Excluded
+
+Hosted control plane, web dashboard, billing, database, PostgreSQL queue, private object storage, VPS deployment, SSH, social accounts, publishing, email integration, other clients' data, original logs, backups, sessions, credentials, and original Git history.
+
+No third-party reference archives, reverse-engineering assets, original footage, private transcripts, model weights, or font binaries are redistributed. Dependencies install from their package registries and retain separate terms. Demonstration footage is generated, contains no people or customer data, and is labeled as synthetic. The cover is AI-generated brand artwork, not an engine screenshot.

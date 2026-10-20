@@ -1,3 +1,5 @@
+> English onboarding: [Getting started](getting-started.md) · [Agent workflow](agent-workflow.md). The native field tables below use the original API identifiers.
+
 # Motore grafico nativo
 
 Questo pacchetto conserva la libreria Remotion originale, la regia a livello di parola, il render a blocchi versionati, la contact sheet, la composizione della voce originale con SFX e la consegna verificata. L'agente Claude, Codex o un altro LLM prepara i JSON nativi e usa gli script. Nessun frontend, backend, account o servizio dell'autore è richiesto. Nessuna API a pagamento è necessaria per il renderer.

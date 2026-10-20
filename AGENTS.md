@@ -1,9 +1,9 @@
 # Content Machine
 
-Questo repository contiene il motore video e i suoi comandi. L'agente LLM è l'orchestratore: non avviare un nuovo frontend, backend SaaS o integrazioni con account social per montare un video.
+This repository is a local video engine. The LLM agent is the orchestrator: use the native scripts and JSON contracts instead of building a new frontend, hosted backend, or social-account integration to perform an edit.
 
-Per lavori video leggi `skills/content-machine/SKILL.md`. Installazione in `docs/INSTALLAZIONE.md`, contratti in `docs/WORKFLOW.md`. Claude legge anche `CLAUDE.md`; le entrypoint per skill sono in `.agents/skills/` e `.claude/skills/`.
+For video work, read `skills/content-machine/SKILL.md`. Installation: `docs/getting-started.md`. File contracts: `docs/agent-workflow.md`. Claude also reads `CLAUDE.md`; skill entrypoints are in `.agents/skills/` and `.claude/skills/`.
 
-Input, piani e output dei lavori stanno in `work/`, esclusa da Git. Non aggiungere media cliente, `.env`, token, sessioni o chiavi al repository. Gli accessi dell'agente rimangono nella sua applicazione, non in questo progetto. Nessuna pubblicazione o chiamata API viene eseguita dai comandi LLM: scambiano file JSON locali.
+Keep footage, transcripts, real-job plans, request/response files, logs, and outputs under ignored `work/`. Never commit agent credentials, `.env`, sessions, customer media, or private service configuration. Agent authentication stays in the agent application. The LLM adapter exchanges local JSON files; it does not call a provider API or publish anything.
 
-Il codice in `motore/` è estratto dalla fabbrica originale; preservare i contratti di timestamp, ribasamento dopo tagli, canale alpha degli overlay e voce originale. Dopo modifiche eseguire le prove pertinenti e almeno un export quando cambia il rendering. Scrivere lo stato del singolo lavoro nel suo `job.json` o rapporto locale.
+Preserve the native timestamp contracts, cut-time rebasing, transparent overlays, and original voice. Use the environment of the current clone. After relevant changes, run the appropriate checks and a real export when rendering behavior changes. Record each job's state in its own `job.json` or local report. Distinguish verified results, skips, and untested platforms.

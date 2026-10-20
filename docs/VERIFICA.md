@@ -1,35 +1,39 @@
-# Verifica del 20 ottobre 2026
+# Verification report — October 20, 2026
 
-## Installazione da copia pulita
+## Clean installation
 
-Creata una cartella contenente **solo i file indicizzati da Git**: niente `.env`, venv, node_modules, build, media generati o accessi del progetto di partenza. Installati un nuovo venv da `requirements.lock.txt` e nuove dipendenze Node con `npm ci --ignore-scripts`. Gli strumenti di sistema sono stati forniti tramite i percorsi configurati per il collaudo, senza copiare account o servizi.
+A new directory was populated with tracked files only: no `.env`, venv, node_modules, generated media, or credentials from the original project. A fresh Python environment was installed from `requirements.lock.txt`; fresh Node dependencies were installed with `npm ci --ignore-scripts`. System tools were supplied through explicit local paths rather than private services.
 
-Ambiente provato: Windows, Python 3.12.10, Node 24, FFmpeg/FFprobe 9.0.2, Chrome già installato, Remotion 4.0.371. La portabilità dei percorsi è implementata; Linux e macOS non sono stati collaudati in questa sessione.
+Verified environment: Windows, Python 3.12.10, Node 24, FFmpeg/FFprobe 9.0.2, an existing Chrome installation, and Remotion 4.0.371. Linux/macOS are not yet verified end to end.
 
-Dal campione generato da `tools/demo.py`: `prepare` con SRT -> workspace nuovo -> regia nativa card+minibars -> validazione -> render -> SFX sintetici -> audio -> consegna -> decodifica completa.
+The generated sample followed the complete chain: prepare with SRT -> new isolated job -> native card/chart plan -> validation -> render -> synthesized SFX -> audio -> delivery -> complete decoding.
 
-**Risultato: MP4 H.264/AAC, 18,000 secondi, 1920×1080, 30 fps, QA 100/100.** Il campione contiene movimento sintetico e tono audio: non è una registrazione cliente né una prova di riconoscimento vocale. L'SRT descrittivo è esplicitamente marcato con tempi di parola stimati. Verificati fotogrammi di card e grafico. Il controllo hook/banner non era applicabile al video lungo.
+**Result: H.264/AAC MP4, 18.000 seconds, 1920×1080, 30 fps, technical QA 100/100.** The source contains synthetic movement and an audio tone; it is not customer footage or a speech-recognition test. The descriptive SRT is explicitly marked with estimated word timings. Card and chart frames were inspected. The hook/banner check did not apply to the long-form sample.
 
-## Motore nativo
+## Native checks
 
-- Sette suite rapide della pipeline short riuscite: 452 verifiche contate tra correzioni, karaoke, ritaglio, silenzi, spezzatura e tagli, più i casi di ingresso immagini. Nove prove opzionali saltate per modello VAD/font assenti.
-- Short nativo da sorgente sintetico di 20 secondi: 1080×1920, 30 fps, sottotitoli ASS con parola attiva, crop centrale senza YuNet. Durata rilevata 20,10 secondi: il comportamento del motore include margini/frame e va controllato sui tagli effettivi.
-- Punch-in su due intervalli verificato con FFmpeg 9.
-- 17 prove originali di conversione FX dopo tagli riuscite.
-- Tre casi sintetici del canone: piano valido accettato; tempi interni fuori evento e tipo ignoto rifiutati.
-- Due test dello scambio LLM: round-trip conforme accettato; risposta obsoleta e schema invalido rifiutati. Provata anche la CLI highlights completa: exit 2 con richiesta, risposta scritta dall'agente, seconda esecuzione con export valido; zero chiamate API dal pacchetto.
-- Compilazione TypeScript e parsing Python riusciti; tre entrypoint di skill validati.
+- Seven quick shorts suites passed. Corrections, karaoke, crop, silence, wrapping, and cuts account for 452 counted checks, plus image-input cases. Nine optional checks were skipped for unavailable VAD/font assets.
+- A native synthetic 20-second short rendered at 1080×1920 / 30 fps with ASS active-word subtitles and the model-free center crop. Measured duration: 20.10 seconds; native padding/frame behavior should be checked on actual cuts.
+- Two-section punch-in rendered with FFmpeg 9.
+- 17 original FX conversion/rebasing checks passed.
+- Three synthetic canonic-plan cases passed: valid plan accepted; out-of-event internal times and unknown type rejected.
+- Two offline LLM exchange tests passed, covering matching responses, stale request hashes, and invalid schemas. The highlights CLI completed a request -> agent-written response -> validated export handoff without a package API call.
+- TypeScript checks and Python parsing passed. Three agent skill entrypoints validated.
 
-## Correzioni operative nell'estrazione
+## Operational fixes
 
-Percorsi personali sostituiti, cache/staging espliciti, font del sistema, modelli non inclusi, browser già installato. Gli script non installano dipendenze durante un render. Aggiornato il passaggio dei filtri per FFmpeg 9, che non accetta il vecchio `-filter_complex_script`. Evitata la seconda codifica AAC nella consegna per mantenere il true peak entro soglia. Errori QA propagati come esito negativo, blocchi versionati e concatenazione ricostruita correttamente.
+Personal paths were removed; cache/staging, system fonts, and existing-browser selection were made explicit. No model is bundled and no render implicitly installs dependencies. FFmpeg 9 filter arguments were updated, extra AAC re-encoding was avoided to preserve true peak, QA failures now propagate, and versioned block concatenation was corrected.
 
-Un primo render di 18 secondi ha avuto un errore transitorio del compositor Remotion, non attribuibile con certezza dai log disponibili. Le ripetizioni sul lavoro isolato e sulla copia pulita sono riuscite. Aggiunti log completi locali e concorrenza predefinita 2, configurabile con `MOTORE_CONCURRENCY`.
+One initial 18-second render had a transient Remotion compositor error whose cause could not be established from the available logs. Repeated isolated-job and clean-copy renders succeeded. Complete local error logs and default concurrency 2 were added; `MOTORE_CONCURRENCY` changes the limit.
 
-## Pulizia per la pubblicazione
+## Publication checks
 
-Nuova storia Git; esclusi configurazioni locali, accessi, sessioni, media cliente, log, dati generati e cronologia originaria. Eseguita scansione dei file e dei blob Git per formati di segreti comuni, file non ammessi e riferimenti personali. Confrontati in memoria anche i valori sensibili della configurazione originale: nessuna corrispondenza nei file destinati alla consegna. I valori non sono stati stampati o salvati nel repository. Questo controllo non revoca né cambia alcun accesso originale.
+A new Git history excludes local configuration, accounts, sessions, customer media, generated outputs, and original history. Working files and Git blobs were scanned for common secret formats and disallowed files. Sensitive original configuration values were also compared in memory against the delivery files, without printing or saving those values. No matches were found in that checked snapshot. No original access was revoked or changed.
 
-## Limiti aperti
+## Presentation update
 
-La trascrizione faster-whisper non è certificata su questo PC: Windows ha bloccato una libreria CTranslate2 con WinError 4551; le protezioni non sono state aggirate. Funziona il percorso collaudato con SRT/JSON. Non sono stati collaudati tutti i componenti grafici su ogni possibile combinazione di dati, font e formato. Il video reale di Marco non è stato usato: la valutazione editoriale con Francesca resta da fare.
+An English README and primary onboarding/agent instructions, contribution templates, an AI-generated cover, and a native rendered preview were added. The preview uses the actual card/flow/CTA components on a synthetic background, cropped for readability. It is a silent component demonstration, not a new full QA benchmark or an editorial-quality claim. Runtime behavior was not changed by this presentation update.
+
+## Open limits
+
+Local faster-whisper recognition is not certified on the tested PC: Windows blocked a CTranslate2 library with WinError 4551. Protections were not bypassed. The SRT/JSON import and rendering path is verified separately. Not every component/data/font/format combination has been rendered. A real customer-video editorial review remains to be done.

@@ -1,25 +1,24 @@
-# Dipendenze e licenze
+# Third-party notices
 
-La licenza MIT del repository riguarda il codice di Content Machine. Non sostituisce i termini delle dipendenze o degli asset usati dall'utilizzatore. Il repository non distribuisce eseguibili, node_modules, modelli, browser, font o media di terzi.
+The repository's MIT license covers Content Machine project code. It does not replace the terms of dependencies, models, fonts, browsers, or media. Executables, node_modules, models, and private assets are not shipped in this repository.
 
-| Componente | Licenza / uso nel pacchetto |
-|---|---|
-| Python | PSF; runtime installato separatamente |
-| NumPy | BSD-3-Clause; SFX e calcoli |
-| Pillow | HPND; tavole contatti |
-| Pydantic / pydantic-core | MIT; schemi di scambio |
-| OpenCV Python headless | Apache-2.0 per il pacchetto/codice recente; rilevamento volto opzionale con pesi separati |
-| fontTools | MIT; preparazione font propri |
-| Brotli | MIT; decompressione font |
-| React / React DOM / TypeScript | MIT; composizioni e controllo tipi |
-| Remotion 4.0.371 e pacchetti @remotion | **Remotion License**, non MIT. Installati separatamente dal registro npm e fissati nei lockfile. |
-| FFmpeg / FFprobe | Dipende dalla build: LGPL o GPL con componenti come libx264. Eseguibili di sistema, non redistribuiti nel repo. |
-| faster-whisper / CTranslate2 | MIT; trascrizione opzionale, non richiesta con SRT/JSON |
-| Pesi Whisper / YuNet | Non inclusi. Consultare la licenza del modello specifico prima dell'installazione/distribuzione. |
-| Font / browser / media | Non inclusi. L'utilizzatore installa font e browser del proprio sistema e fornisce media con diritti appropriati. |
+| Component | License / role |
+| --- | --- |
+| Python | PSF; separately installed runtime |
+| NumPy | BSD-3-Clause; calculations and synthesized SFX |
+| Pillow | HPND; contact sheets |
+| Pydantic / pydantic-core | MIT; structured exchange |
+| OpenCV Python headless | Apache-2.0 for the recent package/code; optional face processing with separately licensed weights |
+| fontTools / Brotli | MIT; preparation of user-supplied fonts |
+| React / React DOM / TypeScript | MIT; native compositions and type checking |
+| Remotion 4.0.371 / @remotion packages | **Remotion License**, not MIT; separately installed from npm, pinned in lockfiles |
+| FFmpeg / FFprobe | Depends on build: LGPL or GPL when components such as libx264 are included; system executables, not bundled |
+| faster-whisper / CTranslate2 | MIT; optional local transcription, not required for SRT/JSON |
+| Whisper / YuNet weights | Not bundled; check the specific model's license |
+| Fonts, browser, footage, music | Not bundled; supplied by the user under appropriate rights |
 
-Remotion consente attualmente la creazione di video gratuita per individui, organizzazioni non profit e imprese fino a tre dipendenti; soggetti/usi diversi possono richiedere una licenza commerciale. Le condizioni limitano inoltre la rivendita di derivati del framework. Consultare la [licenza ufficiale](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) e le [FAQ ufficiali](https://www.remotion.dev/docs/license) per il caso d'uso. Nessuna licenza o sottoscrizione viene acquistata da questo progetto.
+Remotion currently permits free video creation for individuals, non-profit organizations, and companies with up to three employees. Other entities or uses may require a company license. Its terms also restrict resale of derivatives of the framework. Consult the [official license](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md) and [official licensing documentation](https://www.remotion.dev/docs/license) for your case. Setup does not purchase a license or subscription.
 
-I componenti React di questo progetto usano l'API pubblica di Remotion; il framework non è copiato o rilicenziato sotto MIT. Il ramo FFmpeg e le funzioni di montaggio restano utilizzabili senza Remotion per i passaggi che non richiedono animazioni.
+This project's React components use Remotion's public API. The framework is not copied into this repository or relicensed under MIT. FFmpeg-only steps remain usable without Remotion where animations are not required.
 
-Per ricostruire l'inventario delle versioni effettive: `python -m pip freeze` nel venv e i lockfile Node. Gli avvisi delle dipendenze rimangono nei pacchetti installati; includerli se si distribuisce un prodotto che incorpora quei runtime. Testi verificati il 20 ottobre 2026.
+Use `python -m pip freeze` and the Node lockfiles to inspect the versions installed in your environment. Installed packages retain their own notices; preserve applicable notices if distributing a product that incorporates those runtimes. Licensing references checked on October 20, 2026.
